@@ -1,11 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenant Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bedzee – For Tenant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F5A623;
+    --yellow-dark: #d4891a;
+    --yellow-light: #fff8ec;
+    --yellow-border: #fde8bb;
+    --black: #111111;
+    --dark: #222222;
+    --muted: #666666;
+    --white: #ffffff;
+    --border: #e8e8e8;
+    --light-bg: #f9f9f9;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    background: #fff; border-bottom: 1.5px solid var(--border);
+    padding: 0 60px; height: 70px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  
+.logo img{
+  height: 75px;
+  width: 100px;
+  padding: 0px;
+  top: 0px;
+}
+
+.flogo{
+  height: 50px;
+  width: 100px;
+  padding: 0px;
+  top: 0px;
+  color: #E5E7EB;
+}
+
+  .nav-right { display: flex; align-items: center; gap: 40px; }
+  .nav-links { display: flex; gap: 34px; list-style: none; }
+  .nav-links a { text-decoration: none; color: #444; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: #111; font-weight: 700; }
+  .nav-cta {
+    background: var(--yellow); color: #fff; border: none; border-radius: 50px;
+    padding: 11px 26px; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+  .nav-cta svg { width: 16px; height: 16px; fill: white; }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    min-height: calc(100vh - 70px); padding: 70px 80px; gap: 60px;
+    background: #fff; position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; right: 0; top: 0;
+    width: 50%; height: 100%; background: var(--yellow-light);
+    z-index: 0; border-radius: 0 0 0 80px;
+  }
+  .hero-left { position: relative; z-index: 1; }
+  .hero-right { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--yellow-light); border: 1.5px solid var(--yellow-border);
+    border-radius: 50px; padding: 6px 16px;
+    font-size: 0.75rem; font-weight: 700; color: var(--yellow-dark);
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .hero-badge span { width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; display: inline-block; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.7rem; font-weight: 800; line-height: 1.1;
+    letter-spacing: -1.5px; color: var(--black); margin-bottom: 18px;
+  }
+  .hero h1 em { color: var(--yellow); font-style: normal; }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 420px; margin-bottom: 30px; }
+
+  .features-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 38px; }
+  .features-list li { display: flex; align-items: center; gap: 12px; font-size: 0.97rem; color: var(--dark); font-weight: 500; }
+  .feat-check { width: 23px; height: 23px; background: var(--yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .feat-check svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+  .hero-cta-row { display: flex; align-items: center; gap: 20px; }
+  .btn-primary {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--black); color: #fff; border: none; border-radius: 14px;
+    padding: 15px 30px; font-size: 1rem; font-weight: 700; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2); text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: #333; transform: translateY(-2px); }
+  .btn-primary svg { width: 18px; height: 18px; fill: var(--yellow); }
+  .safe-tag { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); }
+  .safe-tag svg { width: 15px; height: 15px; stroke: var(--yellow); fill: none; stroke-width: 2; }
+
+  /* ── PHONE ── */
+  .phone-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
+  .phone-glow { position: absolute; width: 300px; height: 380px; background: radial-gradient(circle, rgba(245,166,35,0.2) 0%, transparent 70%); border-radius: 50%; }
+  .phone {
+    width: 268px; background: #fff; border-radius: 44px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.13), 0 0 0 10px var(--yellow-light), 0 0 0 12px var(--yellow-border);
+    padding: 22px 16px; position: relative; z-index: 2;
+    animation: floatPhone 3s ease-in-out infinite;
+  }
+  @keyframes floatPhone { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .phone-notch { width: 80px; height: 18px; background: var(--black); border-radius: 12px; margin: 0 auto 16px; }
+  .phone-hello { font-size: 0.76rem; font-weight: 700; color: var(--black); margin-bottom: 10px; }
+  .phone-hello span { color: var(--yellow-dark); }
+  .search-box { background: var(--light-bg); border: 1px solid var(--border); border-radius: 9px; padding: 8px 12px; font-size: 0.70rem; color: var(--muted); margin-bottom: 12px; }
+  .phone-section-title { font-size: 0.70rem; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+  .pg-cards { display: flex; gap: 7px; margin-bottom: 12px; }
+  .pg-card { background: var(--yellow-light); border-radius: 9px; padding: 8px; flex: 1; min-width: 0; border: 1px solid var(--yellow-border); }
+  .pg-card-img { width: 100%; height: 48px; background: linear-gradient(135deg, #fde8bb, #F5A623); border-radius: 6px; margin-bottom: 5px; }
+  .pg-card-name { font-size: 0.60rem; font-weight: 700; color: var(--black); }
+  .pg-card-price { font-size: 0.58rem; color: var(--muted); }
+  .rec-card { background: var(--yellow-light); border-radius: 9px; padding: 9px 11px; display: flex; align-items: center; gap: 9px; border: 1px solid var(--yellow-border); }
+  .rec-img { width: 38px; height: 38px; background: linear-gradient(135deg, #F5A623, #d4891a); border-radius: 7px; flex-shrink: 0; }
+  .rec-name { font-size: 0.65rem; font-weight: 700; color: var(--black); }
+  .rec-price { font-size: 0.63rem; color: var(--yellow-dark); font-weight: 700; }
+  .rec-loc { font-size: 0.58rem; color: var(--muted); }
+  .phone-tabs { display: flex; justify-content: space-around; margin-top: 12px; padding-top: 10px; border-top: 1.5px solid var(--border); }
+  .tab-dot { width: 22px; height: 5px; border-radius: 3px; background: var(--border); }
+  .tab-dot.active { background: var(--yellow); }
+
+  .float-badge {
+    position: absolute; background: #fff; border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12); padding: 10px 15px;
+    display: flex; align-items: center; gap: 10px; z-index: 3;
+    border: 1.5px solid var(--border);
+  }
+  .float-badge.left { left: -50px; top: 50px; animation: floatB1 3.5s ease-in-out infinite; }
+  .float-badge.right { right: -50px; bottom: 80px; animation: floatB2 3.5s ease-in-out infinite; }
+  @keyframes floatB1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  @keyframes floatB2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+  .badge-icon { width: 34px; height: 34px; background: var(--yellow-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .badge-icon svg { width: 17px; height: 17px; stroke: var(--yellow-dark); fill: none; stroke-width: 2; }
+  .badge-label { font-size: 0.70rem; color: var(--muted); }
+  .badge-val { font-size: 0.95rem; font-weight: 800; color: var(--black); }
+
+  /* ── WHY ── */
+  .why { padding: 90px 80px; background: var(--light-bg); }
+  .section-label { text-align: center; font-size: 0.75rem; font-weight: 700; color: var(--yellow-dark); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+  .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800; color: var(--black); margin-bottom: 12px; }
+  .section-sub { text-align: center; color: var(--muted); font-size: 1rem; max-width: 480px; margin: 0 auto 52px; line-height: 1.7; }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .why-card { background: #fff; border-radius: 18px; padding: 32px 24px; border: 1.5px solid var(--border); text-align: center; transition: all 0.25s; }
+  .why-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(245,166,35,0.15); border-color: var(--yellow); }
+  .why-icon { width: 56px; height: 56px; background: var(--yellow-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+  .why-icon svg { width: 27px; height: 27px; stroke: var(--yellow-dark); fill: none; stroke-width: 1.8; }
+  .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+  .why-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── TRUST ── */
+  .trust-bar {
+    background: var(--yellow-light); border-radius: 20px; margin: 0 80px; padding: 34px 50px;
+    display: flex; align-items: center; justify-content: space-between;
+    border: 1.5px solid var(--yellow-border);
+  }
+  .trust-content h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--black); margin-bottom: 5px; }
+  .trust-content p { font-size: 0.9rem; color: var(--muted); }
+  .trust-stars { display: flex; gap: 3px; margin-bottom: 8px; }
+  .trust-stars svg { width: 19px; height: 19px; fill: var(--yellow); }
+  .trust-avatars { display: flex; }
+  .avatar { width: 36px; height: 36px; border-radius: 50%; border: 2.5px solid #fff; margin-left: -10px; background: var(--yellow); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; color: #fff; }
+  .avatar:first-child { margin-left: 0; }
+  .avatar.dark { background: var(--black); }
+  .trust-score { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 800; color: var(--black); }
+  .trust-score-label { font-size: 0.82rem; color: var(--muted); }
+
+  /* ── DOWNLOAD ── */
+  .download { padding: 90px 80px; background: #fff; }
+  .download-inner {
+    background: var(--black); border-radius: 28px; padding: 70px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .download-inner::before { content: ''; position: absolute; right: -80px; top: -80px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%); pointer-events: none; }
+  .dl-badge { display: inline-block; background: rgba(245,166,35,0.15); border: 1.5px solid rgba(245,166,35,0.4); border-radius: 50px; padding: 6px 16px; font-size: 0.75rem; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; }
+  .download h2 { font-family: 'Playfair Display', serif; font-size: 2.7rem; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 14px; }
+  .download h2 em { color: var(--yellow); font-style: normal; }
+  .download p { color: rgba(255,255,255,0.55); font-size: 0.97rem; line-height: 1.7; margin-bottom: 32px; }
+  .dl-btn { display: flex; align-items: center; gap: 12px; background: var(--yellow); color: #fff; border: none; border-radius: 14px; padding: 16px 32px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; box-shadow: 0 8px 30px rgba(245,166,35,0.4); transition: all 0.2s; width: fit-content; text-decoration: none; }
+  .dl-btn:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+  .dl-btn svg { width: 20px; height: 20px; fill: #fff; }
+  .dl-steps { display: flex; flex-direction: column; gap: 20px; }
+  .dl-step { display: flex; align-items: flex-start; gap: 15px; }
+  .dl-num { width: 32px; height: 32px; border-radius: 50%; background: var(--yellow); color: #fff; font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dl-step-text { font-size: 0.93rem; color: rgba(255,255,255,0.6); line-height: 1.55; }
+  .dl-step-text strong { color: #fff; display: block; margin-bottom: 2px; font-weight: 700; }
+
+  /* ── FOOTER ── */
+footer { background: var(--black); color: #fff; padding: 20px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.fl { display: flex; align-items: center; gap: 10px; }
+.flt { font-size: 18px; font-weight: 800; }
+.flt span { color: var(--yellow); }
+.fltag { font-size: 10px; color: #888; }
+.fcopy { font-size: 12px; color: #888; }
+.heart { color: #e55; }
+
+</style>
 </head>
 <body>
-    <h1>This is Tenant page</h1>
+
+<nav>
+ <a href="./index.html" class="logo">
+        <div class="logo">
+          <img src="./Bed Zee 3.png" alt="">
+        </div>
+      </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">List PG</a></li>
+      <li><a href="#">Find PG</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+    <button class="nav-cta">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Login
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge"><span></span>For Tenants</div>
+    <h1>Your Perfect Stay,<br><em>Right in Your</em><br>Pocket.</h1>
+    <p class="hero-sub">Discover verified PGs and Hostels across India. Safe, Affordable, Hassle-free — all at your fingertips.</p>
+    <ul class="features-list">
+      <li><span class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Verified Listings</li>
+      <li><span class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>No Brokerage</li>
+      <li><span class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Easy Booking</li>
+      <li><span class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>24×7 Tenant Support</li>
+    </ul>
+    <div class="hero-cta-row">
+      <a href="#" class="btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Download Tenant App
+      </a>
+      <div class="safe-tag">
+        <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>
+        100% Safe &amp; Secure
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="phone-wrap">
+      <div class="phone-glow"></div>
+      <div class="float-badge left">
+        <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <div><div class="badge-val">5,000+</div><div class="badge-label">Verified PGs</div></div>
+      </div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-hello">Hello, <span>🌟 Find your perfect stay</span></div>
+        <div class="search-box">🔍 Search by location, budget...</div>
+        <div class="phone-section-title">Popular in Bangalore</div>
+        <div class="pg-cards">
+          <div class="pg-card"><div class="pg-card-img"></div><div class="pg-card-name">Koramangala PG</div><div class="pg-card-price">₹7,500/mo</div></div>
+          <div class="pg-card"><div class="pg-card-img" style="background:linear-gradient(135deg,#fde8bb,#e08910)"></div><div class="pg-card-name">HSR Layout</div><div class="pg-card-price">₹8,200/mo</div></div>
+          <div class="pg-card"><div class="pg-card-img" style="background:linear-gradient(135deg,#333,#111)"></div><div class="pg-card-name">Whitefield</div><div class="pg-card-price">₹6,800/mo</div></div>
+        </div>
+        <div class="phone-section-title">Recommended for You</div>
+        <div class="rec-card">
+          <div class="rec-img"></div>
+          <div>
+            <div class="rec-name">Elite Stay PG — Indiranagar</div>
+            <div class="rec-price">₹9,000/month</div>
+            <div class="rec-loc">⭐ 4.8 · AC · WiFi · Meals</div>
+          </div>
+        </div>
+        <div class="phone-tabs">
+          <div class="tab-dot active"></div><div class="tab-dot"></div><div class="tab-dot"></div><div class="tab-dot"></div>
+        </div>
+      </div>
+      <div class="float-badge right">
+        <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        <div><div class="badge-val">20 Cities</div><div class="badge-label">Across India</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">Why Tenants Love Bedzee</h2>
+  <p class="section-sub">Everything you need to find your ideal home away from home, in one place.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+      <h3>100% Verified</h3><p>Every property is personally verified for your safety and peace of mind.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <h3>No Brokerage</h3><p>Book directly and save more. Zero hidden charges, zero commission.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
+      <h3>24×7 Support</h3><p>We're always here to help you, day or night, throughout your stay.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+      <h3>Across India</h3><p>Find stays in top cities across India — Bangalore, Pune, Delhi &amp; more.</p>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-content">
+    <h3>Trusted by Thousands of Happy Tenants</h3>
+    <p>Join our growing community of satisfied residents across India</p>
+  </div>
+  <div>
+    <div class="trust-stars">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="trust-avatars">
+      <div class="avatar">A</div><div class="avatar dark">B</div><div class="avatar">C</div><div class="avatar dark">D</div>
+    </div>
+  </div>
+  <div><div class="trust-score">4.8</div><div class="trust-score-label">Average Rating</div></div>
+</div>
+
+<section class="download">
+  <div class="download-inner">
+    <div>
+      <span class="dl-badge">How to Download</span>
+      <h2>Get the App &amp;<br>Start Your <em>Journey</em></h2>
+      <p>Download the Bedzee app in just a few taps. Available on all Android devices.</p>
+      <a href="#" class="dl-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Download Tenant App
+      </a>
+    </div>
+    <div class="dl-steps">
+      <div class="dl-step"><div class="dl-num">1</div><div class="dl-step-text"><strong>Tap the download button</strong>You'll be redirected to the download page.</div></div>
+      <div class="dl-step"><div class="dl-num">2</div><div class="dl-step-text"><strong>Allow installation from unknown sources</strong>Enable this in your device settings.</div></div>
+      <div class="dl-step"><div class="dl-num">3</div><div class="dl-step-text"><strong>Install &amp; open the app</strong>Sign up and find your perfect stay today!</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="logo logo-white">
+          <div class="flogo">
+          <img src="./Bed Zee 2.png" alt="">
+        </div>
+  </a>
+  <div class="fcopy">© 2026 Bedzee. All rights reserved.</div>
+  <div style="font-size:12px;color:#888;">Made with <span class="heart">♥</span> in India</div>
+</footer>
+
 </body>
 </html>
