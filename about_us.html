@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="./index.html">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+      <!-- NAVBAR --> 
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="./index.html" class="logo">
+        <span class="logo-icon"></span>
+        <div class="logo">
+          <img src="./Bed Zee 3.png" alt="">
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="#">List PG</a>
+        <a href="#">Find PG</a>
+        <a href="./about_us.html">About Us</a>
+      </nav>
+      <a href="#" class="btn btn-login"><i class="fa fa-user"></i> Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="./index.html">Home</a>
+      <a href="#">List PG</a>
+      <a href="#">Find PG</a>
+      <a href="./about_us.html">About Us</a>
+      <a href="#" class="btn btn-login" style="width:fit-content">Login</a>
+    </div>
+  </header>
+    <h2>About Us</h2>
+    <p>Bedzee is a modern, technology-driven marketplace transforming how people discover, book, and manage PG and hostel accommodations across India.
+
+We bridge the gap between tenants searching for reliable stays and property owners seeking efficient management solutions. Our platform offers a seamless experience—from discovering verified properties to booking and moving in—ensuring convenience, transparency, and trust at every step.
+
+For tenants , Bedzee simplifies the entire accommodation journey. With a curated selection of verified PGs and hostels, users can easily search, compare, and book stays that match their preferences, location, and budget—without the usual uncertainty.
+
+For property owners and managers , Bedzee provides a powerful all-in-one solution to list, manage, and grow their business. From property visibility and bookings to operational management, our platform is designed to streamline processes, improve occupancy rates, and enhance tenant satisfaction.
+
+At Bedzee, we are driven by a vision to standardize and elevate the PG and hostel living experience across India. By combining smart technology with a customer-first approach, we aim to create a trusted ecosystem where finding and managing accommodations is simple, efficient, and reliable.</p>
+
+
+  <script>
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+
+</html>
