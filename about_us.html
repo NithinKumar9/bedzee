@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="./index.html">
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -36,16 +35,72 @@
       <a href="#" class="btn btn-login" style="width:fit-content">Login</a>
     </div>
   </header>
-    <h2>About Us</h2>
-    <p>Bedzee is a modern, technology-driven marketplace transforming how people discover, book, and manage PG and hostel accommodations across India.
 
-We bridge the gap between tenants searching for reliable stays and property owners seeking efficient management solutions. Our platform offers a seamless experience—from discovering verified properties to booking and moving in—ensuring convenience, transparency, and trust at every step.
+  <!-- ABOUT US HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>About <span class="highlight">Bedzee</span></h1>
+        <p>Bedzee is a modern, technology-driven marketplace transforming how people discover, book, and manage PG and hostel accommodations across India.</p>
+        <p>We bridge the gap between tenants searching for reliable stays and property owners seeking efficient management solutions. Our platform offers a seamless experience—from discovering verified properties to booking and moving in—ensuring convenience, transparency, and trust at every step.</p>
+      </div>
+    </div>
+  </section>
 
-For tenants , Bedzee simplifies the entire accommodation journey. With a curated selection of verified PGs and hostels, users can easily search, compare, and book stays that match their preferences, location, and budget—without the usual uncertainty.
+  <!-- FOR TENANTS -->
+  <section class="section-pad who-we-are">
+    <div class="container who-grid">
+      <div class="who-text">
+        <div class="pill">FOR TENANTS</div>
+        <h2>Simplify Your Accommodation Journey</h2>
+        <p>Bedzee simplifies the entire accommodation journey. With a curated selection of verified PGs and hostels, users can easily search, compare, and book stays that match their preferences, location, and budget—without the usual uncertainty.</p>
+      </div>
+      <div class="who-illustration">
+        <div class="illus-wrap">
+          <img src="https://media.istockphoto.com/id/1305130623/vector/house-for-rent-abstract-concept-vector-illustration.jpg?s=612x612&w=0&k=20&c=lWXlP8jGP9PRlF8Ym_Vk55_iVTR4ik-Mn8XivkN6Pqc=" alt="For Tenants">
+        </div>
+      </div>
+    </div>
+  </section>
 
-For property owners and managers , Bedzee provides a powerful all-in-one solution to list, manage, and grow their business. From property visibility and bookings to operational management, our platform is designed to streamline processes, improve occupancy rates, and enhance tenant satisfaction.
+  <!-- FOR OWNERS -->
+  <section class="section-pad benefits">
+    <div class="container">
+      <div class="who-grid">
+        <div class="who-illustration">
+          <div class="illus-wrap">
+            <img src="https://via.placeholder.com/500x400?text=For+Owners" alt="For Owners">
+          </div>
+        </div>
+        <div class="who-text">
+          <div class="pill">FOR PROPERTY OWNERS</div>
+          <h2>Powerful Management Solutions</h2>
+          <p>Bedzee provides a powerful all-in-one solution to list, manage, and grow your business. From property visibility and bookings to operational management, our platform is designed to streamline processes, improve occupancy rates, and enhance tenant satisfaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-At Bedzee, we are driven by a vision to standardize and elevate the PG and hostel living experience across India. By combining smart technology with a customer-first approach, we aim to create a trusted ecosystem where finding and managing accommodations is simple, efficient, and reliable.</p>
+  <!-- OUR VISION -->
+  <section class="section-pad impact">
+    <div class="container">
+      <h2 class="section-title center">Our Vision</h2>
+      <p class="center" style="color: rgba(255,255,255,.8); font-size: 18px; max-width: 800px; margin: 0 auto;">
+        At Bedzee, we are driven by a vision to standardize and elevate the PG and hostel living experience across India. By combining smart technology with a customer-first approach, we aim to create a trusted ecosystem where finding and managing accommodations is simple, efficient, and reliable.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
 
 
   <script>
